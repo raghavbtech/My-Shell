@@ -1,0 +1,18 @@
+# Compiled binaries
+myshell
+*.o
+*.obj
+*.exe
+*.out
+
+# IDE / editor folders
+.vscode/
+.vs/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
