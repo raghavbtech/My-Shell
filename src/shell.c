@@ -3,12 +3,14 @@
 int main(void)
 {
     char *line;
+    char **args;
 
     while (1)
     {
         print_prompt();
         line = read_line();
-        (void)line;
+        args = parse_line(line);
+        (void)args;
     }
 
     return 0;

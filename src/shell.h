@@ -9,9 +9,13 @@
 #include <unistd.h>
 
 #define MAX_LINE 1024
+#define MAX_ARGS 64
 
 /* Prompt and input handling (shell.c) */
 void print_prompt(void);
 char *read_line(void);
+
+/* Parsing (parse.c) */
+char **parse_line(char *line);
 
 #endif /* SHELL_H */
