@@ -10,7 +10,7 @@ int main(void)
         print_prompt();
         line = read_line();
         args = parse_line(line);
-        (void)args;
+        execute(args);
     }
 
     return 0;

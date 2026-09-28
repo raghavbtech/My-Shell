@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #define MAX_LINE 1024
 #define MAX_ARGS 64
@@ -17,5 +18,8 @@ char *read_line(void);
 
 /* Parsing (parse.c) */
 char **parse_line(char *line);
+
+/* Command execution (execute.c) */
+int execute(char **args);
 
 #endif /* SHELL_H */
