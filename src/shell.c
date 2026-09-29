@@ -18,7 +18,15 @@ int main(void)
 
 void print_prompt(void)
 {
-    printf("myshell> ");
+    char cwd[1024];
+    if (getcwd(cwd, sizeof(cwd)) != NULL)
+    {
+        printf("myshell:%s> ", cwd);
+    }
+    else
+    {
+        printf("myshell> ");
+    }
     fflush(stdout);
 }
 

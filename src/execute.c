@@ -2,7 +2,7 @@
 
 int execute(char **args)
 {
-    if (args[0] == NULL)
+    if (handle_builtin(args))
     {
         return 1;
     }

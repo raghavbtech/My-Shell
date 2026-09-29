@@ -19,6 +19,9 @@ char *read_line(void);
 /* Parsing (parse.c) */
 char **parse_line(char *line);
 
+/* Built-in commands (builtin.c) */
+int handle_builtin(char **args);
+
 /* Command execution (execute.c) */
 int execute(char **args);
 
