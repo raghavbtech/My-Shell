@@ -11,6 +11,11 @@
 
 #define MAX_LINE 1024
 #define MAX_ARGS 64
+#define MAX_HISTORY 100
+
+/* Command history */
+extern char *history[MAX_HISTORY];
+extern int history_count;
 
 /* Prompt and input handling (shell.c) */
 void print_prompt(void);

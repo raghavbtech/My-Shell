@@ -1,5 +1,8 @@
 ﻿#include "shell.h"
 
+char *history[MAX_HISTORY];
+int history_count = 0;
+
 int handle_builtin(char **args)
 {
     if (args[0] == NULL)
@@ -49,6 +52,7 @@ int handle_builtin(char **args)
         printf("Built-in commands: \n");
         printf("  cd  <dir>   change directory\n");
         printf("  pwd         print current directory\n");
+        printf("  history     show command history\n");
         printf("  clear       clear the screen\n");
         printf("  help        show this help message\n");
         printf("  exit        exit the shell \n");
@@ -60,6 +64,15 @@ int handle_builtin(char **args)
     {
         printf("\033[H\033[J");
         fflush(stdout);
+        return 1;
+    }
+
+    if (strcmp(args[0], "history") == 0)
+    {
+        for (int i = 0; i < history_count; i++)
+        {
+            printf("%d %s \n", i + 1, history[i]);
+        }
         return 1;
     }
 

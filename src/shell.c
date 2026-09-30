@@ -42,5 +42,11 @@ char *read_line(void)
 
     line[strcspn(line, "\n")] = '\0';
 
+    if (strlen(line) > 0 && history_count < MAX_HISTORY)
+    {
+        history[history_count] = strdup(line);
+        history_count++;
+    }
+
     return line;
 }
