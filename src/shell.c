@@ -3,14 +3,26 @@
 int main(void)
 {
     char *line;
+    char *command;
     char **args;
 
     while (1)
     {
         print_prompt();
         line = read_line();
-        args = parse_line(line);
-        execute(args);
+        command = strtok(line, ";");
+        while (command != NULL)
+        {
+            while (*command == ' ')
+            {
+                command++;
+            }
+
+            args = parse_line(command);
+            execute(args);
+
+            command = strtok(NULL, ";");
+        }
     }
 
     return 0;
