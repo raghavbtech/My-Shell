@@ -1,4 +1,4 @@
-﻿#include "shell.h"
+#include "shell.h"
 
 char **parse_line(char *line)
 {
@@ -15,4 +15,24 @@ char **parse_line(char *line)
     }
     args[i] = NULL;
     return args;
+}
+
+void expand_variables(char **args)
+{
+    for (int i = 0; args[i] != NULL; i++)
+    {
+        if (args[i][0] == '$')
+        {
+            char *var_name = args[i] + 1;
+            char *value = getenv(var_name);
+            if (value != NULL)
+            {
+                args[i] = value;
+            }
+            else
+            {
+                args[i] = "";
+            }
+        }
+    }
 }

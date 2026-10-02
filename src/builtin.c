@@ -1,4 +1,4 @@
-﻿#include "shell.h"
+#include "shell.h"
 
 char *history[MAX_HISTORY];
 int history_count = 0;
@@ -56,6 +56,12 @@ int handle_builtin(char **args)
         printf("  clear       clear the screen\n");
         printf("  help        show this help message\n");
         printf("  exit        exit the shell \n");
+        printf("Redirection:\n");
+        printf("  cmd > file  write command output to a file\n");
+        printf("  cmd < file  read command input from a file\n");
+        printf("Other:\n");
+        printf("  cmd1 ; cmd2 run multiple commands in sequence\n");
+        printf("  $VAR        expand an environment variable\n");
         printf("Any other input is run as an external program. \n");
         return 1;
     }
