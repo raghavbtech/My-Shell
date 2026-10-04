@@ -4,14 +4,15 @@ char **parse_line(char *line)
 {
     static char *args[MAX_ARGS];
     int i = 0;
+    char *save_inner;
 
-    char *token = strtok(line, " ");
+    char *token = strtok_r(line, " ", &save_inner);
 
     while (token != NULL && i < MAX_ARGS - 1)
     {
         args[i] = token;
         i++;
-        token = strtok(NULL, " ");
+        token = strtok_r(NULL, " ", &save_inner);
     }
     args[i] = NULL;
     return args;

@@ -1,16 +1,17 @@
-#include "shell.h"
+﻿#include "shell.h"
 
 int main(void)
 {
     char *line;
     char *command;
+    char *save_outer;
     char **args;
 
     while (1)
     {
         print_prompt();
         line = read_line();
-        command = strtok(line, ";");
+        command = strtok_r(line, ";", &save_outer);
         while (command != NULL)
         {
             while (*command == ' ')
@@ -21,7 +22,7 @@ int main(void)
             args = parse_line(command);
             execute(args);
 
-            command = strtok(NULL, ";");
+            command = strtok_r(NULL, ";", &save_outer);
         }
     }
 
